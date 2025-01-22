@@ -1,0 +1,7 @@
+.profile-img {
+    max-width: 100%; /* Limite la largeur à celle du parent */
+    max-height: 100%; /* Limite la hauteur au parent */
+    object-fit: cover; /* Garde les proportions de l'image en la rognant si nécessaire */
+    border-radius: 8px; /* Ajoute un léger arrondi pour s'harmoniser avec les cards */
+    overflow: hidden; /* Empêche le débordement */
+}
