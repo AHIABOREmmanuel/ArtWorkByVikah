@@ -7,7 +7,7 @@ import { BodyComponent } from './body/body.component';
 
 
 const routes: Routes = [
-  {path:'accueil',component:BodyComponent},
+  {path:'',component:BodyComponent},
   {path:'resume',component:ResumeComponent},
   {path:'projets',component:ProjetsComponent},
   {path:'contact',component:ContactComponent},
