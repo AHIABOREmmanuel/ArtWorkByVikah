@@ -5,13 +5,11 @@ import { ProjetsComponent } from './body/projets/projets.component';
 import { ContactComponent } from './body/contact/contact.component';
 import { BodyComponent } from './body/body.component';
 
-
 const routes: Routes = [
-  {path:'',component:BodyComponent},
-  {path:'resume',component:ResumeComponent},
-  {path:'projets',component:ProjetsComponent},
-  {path:'contact',component:ContactComponent},
-  {path:'',component:BodyComponent},
+  { path: '', component: BodyComponent },
+  { path: 'resume', component: ResumeComponent },
+  { path: 'projets', component: ProjetsComponent },
+  { path: 'contact', component: ContactComponent }
 ];
 
 @NgModule({
