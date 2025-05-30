@@ -1,26 +1,170 @@
 <!-- Contact Section -->
-<section class="py-5">
+<section class="py-5 contact-section">
     <div class="container px-5">
-        <div class="bg-light rounded-4 py-5 px-4 px-md-5 text-center">
-            <div class="mb-5">
-                <div class="feature text-white rounded-3 mb-3" style="background: #3C3C3C;">
-                    <i class="bi bi-envelope"></i>
+        <!-- Contact Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-3">
+                <span class="d-inline" style="color: #3C3C3C;">Contactez-nous</span>
+            </h1>
+            <p class="lead fw-normal text-muted">Nous sommes là pour répondre à toutes vos questions</p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="row gx-5 justify-content-center">
+            <!-- Contact Information -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="contact-info">
+                    <div class="card shadow border-0 rounded-4 mb-4">
+                        <div class="card-body p-4">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h5 class="fw-bolder mb-2">Notre Adresse</h5>
+                            <p class="text-muted mb-0">Lomé, Togo</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow border-0 rounded-4 mb-4">
+                        <div class="card-body p-4">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h5 class="fw-bolder mb-2">Téléphone</h5>
+                            <p class="text-muted mb-0">+228 91 54 80 96</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow border-0 rounded-4">
+                        <div class="card-body p-4">
+                            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <h5 class="fw-bolder mb-2">Email</h5>
+                            <p class="text-muted mb-0">contact&#64;artworkbyvikah.com</p>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="fw-bolder" style="color: #3C3C3C;">Restons en contact</h1>
-                <p class="lead fw-normal mb-0" style="color: #3C3C3C;">Suivez-nous sur les réseaux sociaux !</p>
             </div>
-            <!-- Social Media Icons -->
-            <div class="d-flex justify-content-center fs-2 gap-4">
-                <a style="color: #3C3C3C;" href="https://wa.me/22891548096" target="_blank" aria-label="WhatsApp">
+
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card shadow border-0 rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="fw-bolder mb-4">Envoyez-nous un message</h2>
+
+                        <!-- Success Message -->
+                        <div *ngIf="submitSuccess" class="alert alert-success mb-4" role="alert">
+                            <i class="bi bi-check-circle me-2"></i>
+                            Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                        </div>
+
+                        <!-- Error Message -->
+                        <div *ngIf="submitError" class="alert alert-danger mb-4" role="alert">
+                            <i class="bi bi-exclamation-circle me-2"></i>
+                            {{ errorMessage }}
+                        </div>
+
+                        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            class="form-control"
+                                            id="name"
+                                            type="text"
+                                            formControlName="name"
+                                            [ngClass]="{'is-invalid': contactForm.get('name')?.invalid && contactForm.get('name')?.touched}"
+                                            placeholder="Entrez votre nom..."
+                                            required
+                                        />
+                                        <label for="name">Nom complet</label>
+                                        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="invalid-feedback">
+                                            Le nom est requis
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            class="form-control"
+                                            id="email"
+                                            type="email"
+                                            formControlName="email"
+                                            [ngClass]="{'is-invalid': contactForm.get('email')?.invalid && contactForm.get('email')?.touched}"
+                                            placeholder="nom@exemple.com"
+                                            required
+                                        />
+                                        <label for="email">Email</label>
+                                        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="invalid-feedback">
+                                            Veuillez entrer une adresse email valide
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            class="form-control"
+                                            id="phone"
+                                            type="tel"
+                                            formControlName="phone"
+                                            [ngClass]="{'is-invalid': contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched}"
+                                            placeholder="(123) 456-7890"
+                                            required
+                                        />
+                                        <label for="phone">Téléphone</label>
+                                        <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" class="invalid-feedback">
+                                            Le numéro de téléphone est requis
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <textarea
+                                            class="form-control"
+                                            id="message"
+                                            formControlName="message"
+                                            [ngClass]="{'is-invalid': contactForm.get('message')?.invalid && contactForm.get('message')?.touched}"
+                                            placeholder="Entrez votre message..."
+                                            style="height: 10rem"
+                                            required
+                                        ></textarea>
+                                        <label for="message">Message</label>
+                                        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="invalid-feedback">
+                                            Le message est requis
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button
+                                        class="btn btn-dark btn-lg px-5 py-3 fs-6 fw-bolder rounded-pill w-100"
+                                        type="submit"
+                                        [disabled]="isSubmitting || contactForm.invalid"
+                                    >
+                                        <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                        {{ isSubmitting ? 'Envoi en cours...' : 'Envoyer le message' }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="text-center mt-5">
+            <h2 class="fw-bolder mb-4">Suivez-nous sur les réseaux sociaux</h2>
+            <div class="d-flex justify-content-center gap-4">
+                <a class="social-link" href="https://wa.me/22891548096" target="_blank" aria-label="WhatsApp">
                     <i class="bi bi-whatsapp"></i>
                 </a>
-                <a style="color: #3C3C3C;" href="https://www.tiktok.com/@artwork_by_vikah?_t=ZM-8tHDmSPtJ3e&_r=1" target="_blank" aria-label="TikTok">
+                <a class="social-link" href="https://www.tiktok.com/@artwork_by_vikah?_t=ZM-8tHDmSPtJ3e&_r=1" target="_blank" aria-label="TikTok">
                     <i class="bi bi-tiktok"></i>
                 </a>
-                <a style="color: #3C3C3C;" href="https://www.instagram.com/vikah_artwork/profilecard/?igsh=MWM3cnYzcnJ2ZW5icA==" target="_blank" aria-label="Instagram">
+                <a class="social-link" href="https://www.instagram.com/vikah_artwork/profilecard/?igsh=MWM3cnYzcnJ2ZW5icA==" target="_blank" aria-label="Instagram">
                     <i class="bi bi-instagram"></i>
                 </a>
-                <a style="color: #3C3C3C;" href="https://www.facebook.com/share/18H5LivVy9/?mibextid=LQQJ4d" target="_blank" aria-label="Facebook">
+                <a class="social-link" href="https://www.facebook.com/share/18H5LivVy9/?mibextid=LQQJ4d" target="_blank" aria-label="Facebook">
                     <i class="bi bi-facebook"></i>
                 </a>
             </div>

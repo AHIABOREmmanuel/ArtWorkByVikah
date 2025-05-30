@@ -1,0 +1,129 @@
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/pattern.png');
+    opacity: 0.05;
+    z-index: 0;
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(45deg, #3C3C3C, #6c757d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Profile Image */
+.profile {
+    position: relative;
+    z-index: 1;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Animation */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(45deg, #3C3C3C, #6c757d);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-primary {
+    border: 2px solid #3C3C3C;
+    color: #3C3C3C;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background: #3C3C3C;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Badge */
+.bg-primary-subtle {
+    background-color: rgba(60, 60, 60, 0.1) !important;
+}
+
+.text-primary {
+    color: #3C3C3C !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .profile-img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-img {
+        max-width: 300px;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-img {
+        max-width: 250px;
+    }
+
+    .display-3 {
+        font-size: 2rem;
+    }
+
+    .btn-lg {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+    }
+}
