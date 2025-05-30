@@ -126,3 +126,133 @@
         font-size: 1rem;
     }
 }
+
+.graphic-composition {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-logo {
+    position: relative;
+    z-index: 2;
+}
+
+.logo-img {
+    width: 400px;
+    height: auto;
+    animation: pulse 3s infinite;
+}
+
+.floating-element {
+    position: absolute;
+    font-size: 4rem;
+    color: #3C3C3C;
+    opacity: 0.7;
+    animation: float 6s infinite;
+    transition: all 0.3s ease;
+}
+
+.floating-element:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.element-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.element-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.element-3 {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.element-4 {
+    bottom: 10%;
+    right: 15%;
+    animation-delay: 3s;
+}
+
+.element-5 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 4s;
+}
+
+.element-6 {
+    top: 40%;
+    left: 5%;
+    animation-delay: 0.5s;
+    font-size: 3.5rem;
+}
+
+.element-7 {
+    top: 60%;
+    right: 5%;
+    animation-delay: 1.5s;
+    font-size: 3.2rem;
+}
+
+.element-8 {
+    top: 70%;
+    left: 30%;
+    animation-delay: 2.5s;
+    font-size: 3.8rem;
+}
+
+.element-9 {
+    top: 15%;
+    left: 40%;
+    animation-delay: 3.5s;
+    font-size: 3.3rem;
+}
+
+.element-10 {
+    top: 35%;
+    right: 25%;
+    animation-delay: 4.5s;
+    font-size: 3.6rem;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(10deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
