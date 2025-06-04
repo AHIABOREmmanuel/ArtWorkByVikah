@@ -26,6 +26,7 @@ export class ContactService {
         {
           from_name: formData.name,
           from_email: formData.email,
+          to_email: formData.email,
           phone: formData.phone,
           message: formData.message,
           to_name: 'ArtWork By Vikah',
